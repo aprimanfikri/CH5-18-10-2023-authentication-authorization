@@ -39,7 +39,7 @@ const findShopById = async (req, res, next) => {
 const updateShop = async (req, res, next) => {
   const { name } = req.body;
   try {
-    await Shop.update(
+    const shop = await Shop.update(
       {
         name,
       },
@@ -53,6 +53,7 @@ const updateShop = async (req, res, next) => {
     res.status(200).json({
       status: "Success",
       message: "sukses update shop",
+      data: shop,
     });
   } catch (err) {
     next(new ApiError(err.message, 400));

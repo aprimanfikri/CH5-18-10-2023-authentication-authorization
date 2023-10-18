@@ -9,8 +9,6 @@ const createProduct = async (req, res) => {
   const { name, price, stock } = req.body;
   const file = req.file;
 
-  console.log(req.body);
-
   try {
     // dapatkan extension file nya
     const split = file.originalname.split(".");
